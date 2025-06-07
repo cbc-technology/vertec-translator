@@ -1,0 +1,68 @@
+{
+	"name": "vtc-translation",
+	"displayName": "Vertec Translation",
+	"description": "Provides methods to access and replace Vertec translations",
+	"version": "0.0.1",
+	"publisher": "Vertec",
+	"private": true,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xxx"
+	},
+	"engines": {
+		"vscode": "^1.73.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:vertec.translator"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "vertec.translateText",
+				"title": "Vertec: Translate text"
+			},
+			{
+				"command": "vertec.translateClass",
+				"title": "Vertec: Translate class"
+			},
+			{
+				"command": "vertec.translateMember",
+				"title": "Vertec: Translate member"
+			}
+		],
+		"configuration": {
+			"title": "Vertec Translator",
+			"type": "object",
+			"properties": {
+				"vertecTranslator.ClassesAndMembersJsonPath": {
+				"type": "string",
+				"description": "Path to the classes and members JSON file."
+				},
+				"vertecTranslator.TranslationsJsonPath": {
+				"type": "string",
+				"description": "Path to the translations JSON file."
+				}
+			}
+			}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.13.0",
+		"@stylistic/eslint-plugin": "^2.9.0",
+		"@types/node": "^20",
+		"@types/vscode": "^1.73.0",
+		"eslint": "^9.13.0",
+		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.26.0"
+	}
+}
